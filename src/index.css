@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import "tailwindcss";
+
+.poppins-thin {
+  font-family: "Poppins", serif;
+  font-weight: 100;
+  font-style: normal;
+}
+
+.poppins-extralight {
+  font-family: "Poppins", serif;
+  font-weight: 200;
+  font-style: normal;
+}
+
+.poppins-light {
+  font-family: "Poppins", serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.poppins-regular {
+  font-family: "Poppins", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.poppins-medium {
+  font-family: "Poppins", serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.poppins-semibold {
+  font-family: "Poppins", serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.poppins-bold {
+  font-family: "Poppins", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.poppins-extrabold {
+  font-family: "Poppins", serif;
+  font-weight: 800;
+  font-style: normal;
+}
+
+.poppins-black {
+  font-family: "Poppins", serif;
+  font-weight: 900;
+  font-style: normal;
+}
+
+.poppins-thin-italic {
+  font-family: "Poppins", serif;
+  font-weight: 100;
+  font-style: italic;
+}
+
+.poppins-extralight-italic {
+  font-family: "Poppins", serif;
+  font-weight: 200;
+  font-style: italic;
+}
+
+.poppins-light-italic {
+  font-family: "Poppins", serif;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.poppins-regular-italic {
+  font-family: "Poppins", serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.poppins-medium-italic {
+  font-family: "Poppins", serif;
+  font-weight: 500;
+  font-style: italic;
+}
+
+.poppins-semibold-italic {
+  font-family: "Poppins", serif;
+  font-weight: 600;
+  font-style: italic;
+}
+
+.poppins-bold-italic {
+  font-family: "Poppins", serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
+.poppins-extrabold-italic {
+  font-family: "Poppins", serif;
+  font-weight: 800;
+  font-style: italic;
+}
+
+.poppins-black-italic {
+  font-family: "Poppins", serif;
+  font-weight: 900;
+  font-style: italic;
+}
+
+
+@theme {
+  /* Primary Color (Main Brand Color) */
+  --color-primary: oklch(70% 0.2 55); /* #EF7F1B - Vibrant Orange */
+
+  /* Secondary Colors (For Backgrounds & Light UI Elements) */
+  --color-background-light: oklch(95% 0.05 55); /* Lightest variant */
+  --color-background-medium: oklch(90% 0.07 55); /* Soft Background */
+  --color-background-hover: oklch(0.928 0.006 264.531); /* Hover Background */
+
+  /* Buttons & Interactive Elements */
+  --color-button-default: var(--color-primary); /* Default Button */
+  --color-button-hover: oklch(60% 0.2 55); /* Button Hover */
+  --color-button-active: oklch(50% 0.22 55); /* Active Button */
+  --color-button-disabled: oklch(80% 0.06 55); /* Disabled Button */
+
+  /* Text Colors */
+  --color-text-heading: oklch(0.278 0.033 256.848); /* Heading Text */
+  --color-text-secondary: oklch(50% 0.12 55); /* Subtle Text */
+  --color-text-muted: oklch(95% 0.03 55); /* Muted Light Text */
+
+  /* Backgrounds */
+  --color-background-dark: oklch(80% 0.08 55); /* Darker Background */
+}
