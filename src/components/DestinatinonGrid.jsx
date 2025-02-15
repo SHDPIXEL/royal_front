@@ -35,7 +35,7 @@ const DestinationGrid = () => {
 
     return (
         <section className="my-12">
-            <div className="max-w-7xl mx-auto px-4 md:px-8">
+            <div className="mx-auto">
                 <h2 className="lg:text-3xl mg:text-xl text-lg font-semibold mb-6 text-text-heading">
                     Popular Destinations
                 </h2>

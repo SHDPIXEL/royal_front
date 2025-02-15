@@ -133,3 +133,13 @@
   /* Backgrounds */
   --color-background-dark: oklch(80% 0.08 55); /* Darker Background */
 }
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* For IE, Edge and Firefox */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}

@@ -132,12 +132,15 @@ const Home = () => {
                         Mountains, Beaches or a city ?
                     </h2>
                 </div>
-                <div className="flex gap-4 overflow-x-auto">
+                <div className="relative flex gap-4 overflow-x-auto scroll-smooth snap-x scrollbar-hide">
                     {categories.map((category) => (
                         <button
                             key={category.id}
-                            onClick={() => setSelectedCategory(category.id)}
-                            className={`px-6 py-2 rounded-full whitespace-nowrap ${selectedCategory === category.id
+                            onClick={() => {
+                                setSelectedCategory(category.id);
+                                console.log("Selected Category:", category.id); // Debugging
+                            }}
+                            className={`px-4 py-2 md:px-6 md:py-2 rounded-full whitespace-nowrap text-sm md:text-base z-10 ${selectedCategory === category.id
                                 ? 'bg-black text-white'
                                 : 'bg-white border border-gray-200 hover:bg-gray-200'
                                 }`}
@@ -146,27 +149,46 @@ const Home = () => {
                         </button>
                     ))}
                 </div>
+
             </div>
 
             {/* Stays Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-16">
-                {filteredStays.map((stay) => (
-                    <StayCard
-                        key={stay.id}
-                        images={stay.images}
-                        name={stay.name}
-                        city={stay.city}
-                        price={stay.price}
-                    />
-                ))}
+
+            <div className="relative">
+                <div className="flex md:grid gap-6 mb-16 pb-4 md:pb-0 md:grid-cols-3 lg:grid-cols-4 
+        whitespace-nowrap min-w-full w-max overflow-x-auto scroll-smooth snap-x scrollbar-hide">
+                    {filteredStays.map((stay) => (
+                        <div className="w-80 flex-shrink-0 md:w-auto md:flex-auto">
+                            <StayCard
+                                key={stay.id}
+                                images={stay.images}
+                                name={stay.name}
+                                city={stay.city}
+                                price={stay.price}
+                            />
+                        </div>
+                    ))}
+                </div>
             </div>
+
             <section>
                 <DestinationGrid />
             </section>
 
-            <section className="max-w-7xl mx-auto">
-                <h2 className="lg:text-3xl mg:text-xl text-lg font-semibold mb-6 text-text-heading">Fly to these destinations</h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <section className="mx-auto">
+                <h2 className="lg:text-3xl mg:text-xl text-lg font-semibold mb-6 text-text-heading">
+                    Fly to these destinations
+                </h2>
+
+                <div className="flex sm:hidden gap-4 overflow-x-auto scroll-smooth snap-x scrollbar-hide">
+                    {flights.map((flight, index) => (
+                        <div key={index} className="snap-center flex-shrink-0 w-80">
+                            <FlightCard {...flight} />
+                        </div>
+                    ))}
+                </div>
+
+                <div className="hidden sm:grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                     {flights.map((flight, index) => (
                         <FlightCard key={index} {...flight} />
                     ))}
