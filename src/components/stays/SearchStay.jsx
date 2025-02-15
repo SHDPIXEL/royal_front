@@ -32,7 +32,7 @@ const SearchBar = () => {
 
 
   const handleSearch = () => {
-    navigate("/search-results");
+    navigate("/results");
   };
 
   return (

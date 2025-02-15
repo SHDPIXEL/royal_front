@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { CircleUserRound, BedDouble, Plane, CirclePlus } from "lucide-react";
 import SearchBar from "./stays/SearchStay";
 import logoBgRemoved from "../assets/images/logo-bg-removed.png";
-import { useLocation } from "react-router";
+import { useLocation, Link } from "react-router";
 
 const Header = () => {
   const [showSearch, setShowSearch] = useState(true);
@@ -15,10 +15,13 @@ const Header = () => {
     const controlSearch = () => {
       const currentScrollY = window.scrollY;
 
-      if (currentScrollY < lastScrollY || currentScrollY < 10) {
-        setShowSearch(true);
-      } else if (currentScrollY > lastScrollY && currentScrollY > 10) {
+      // Hide search bar when scrolling down
+      if (currentScrollY > 100) {
         setShowSearch(false);
+      } 
+      // Show search bar only when back at the top
+      else if (currentScrollY === 0) {
+        setShowSearch(true);
       }
 
       setLastScrollY(currentScrollY);
@@ -29,16 +32,17 @@ const Header = () => {
     return () => {
       window.removeEventListener('scroll', controlSearch);
     };
-  }, [lastScrollY]);
+  }, []);
 
   return (
-
-    <header id="site-header" className="fixed top-0 z-50 bg-gray-100 border-b border-gray-200 py-3 md:px-25 px-5 w-full overflow-visible">
+    <header id="site-header" className="fixed top-0 z-50 bg-white border-b border-gray-200 md:px-25 px-5 w-full overflow-visible">
       <div className="flex justify-between items-center max-w-7xl mx-auto">
         {/* Logo Section */}
-        <div className="w-30 cursor-pointer">
-          <img src={logoBgRemoved} alt="Royal-travel-logo" />
-        </div>
+        <Link to={"/"}>
+          <div className="md:w-24 h-auto w-16  cursor-pointer">
+            <img src={logoBgRemoved} alt="Royal-travel-logo" />
+          </div>
+        </Link>
         {/* Navigation Links (Selection Bar) */}
         <nav className="hidden md:flex rounded-full px-4 py-2 space-x-6 text-sm tracking-wider text-gray-700">
           <button className="flex items-center gap-x-2 font-medium hover:bg-background-hover px-5 py-3 cursor-pointer rounded-full transition">
@@ -67,7 +71,7 @@ const Header = () => {
       {/* Search Bar Section */}
       {!isSearchResultsPage && (
         <section
-          className={`transition-all duration-300 ease-in-out 
+          className={`transition-all duration-100 ease-in-out 
       ${showSearch ? "max-h-[300px] opacity-100 py-5" : "max-h-0 opacity-0 py-0"}`}
         >
           <h1 className={`text-3xl md:text-5xl font-semibold text-text-heading 
@@ -78,7 +82,6 @@ const Header = () => {
         </section>
       )}
     </header>
-
   );
 };
 
